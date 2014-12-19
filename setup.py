@@ -1,4 +1,3 @@
-import os
 import sys
 import subprocess
 
@@ -82,7 +81,12 @@ class PyTest(TestCommand):
 
 
 setup(name="lacosmicx",
-      packages = find_packages(),
+      packages=find_packages(),
       ext_modules=cythonize(get_extensions()),
       tests_require=['pytest'],
-      cmdclass={'test': PyTest})
+      cmdclass={'test': PyTest},
+      version='1.0',
+      description='Fast Implementation of LA Cosmic',
+      author='Curtis McCully',
+      author_email='cmccully@lcogt.net',
+      url='https://github.com/cmccully/lacosmicx')
