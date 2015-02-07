@@ -53,19 +53,18 @@ def lacosmicx(np.ndarray[np.float32_t, ndim=2, mode='c', cast=True] indat,
               float gain=1.0, float readnoise=6.5, float satlevel=65536.0,
               float pssl=0.0, int niter=4, sepmed=True, cleantype='meanmask',
               fsmode='median', psfmodel='gauss', float psffwhm=2.5,
-              int psfsize=7, psfk=None, float psfbeta=4.765, verbose=False,
-              retclean=False):
+              int psfsize=7, psfk=None, float psfbeta=4.765, verbose=False):
     """lacosmicx(indat, inmask=None, sigclip=4.5, sigfrac=0.3, objlim=5.0,
                  gain=1.0, readnoise=6.5, satlevel=65536.0, pssl=0.0, niter=4,
                  sepmed=True, cleantype='meanmask', fsmode='median',
                  psfmodel='gauss', psffwhm=2.5,psfsize=7, psfk=None,
-                 psfbeta=4.765, verbose=False, retclean=False)\n
+                 psfbeta=4.765, verbose=False)\n
     Run the LACosmic algorithm to detect cosmic rays in a numpy array.
 
     If you use this code, please add this repository address in a footnote:
     https://github.com/cmccully/lacosmicx
 
-    Also please cite the original paper which can be found at:
+    Please cite the original paper which can be found at:
     U{http://www.astro.yale.edu/dokkum/lacosmic/}
 
     van Dokkum 2001, PASP, 113, 789, 1420
@@ -163,11 +162,6 @@ def lacosmicx(np.ndarray[np.float32_t, ndim=2, mode='c', cast=True] indat,
     verbose : boolean, optional
         Print to the screen or not. Default: False.
 
-    retclean : boolean, optional
-        If True, return both the cleaned array and the crmask:
-        (crmask, cleanarr). If False, return only the cosmic ray mask (crmask).
-        Default: False.
-
     Returns
     -------
     crmask : boolean numpy array
@@ -175,7 +169,7 @@ def lacosmicx(np.ndarray[np.float32_t, ndim=2, mode='c', cast=True] indat,
         cosmic ray detections.
 
     cleanarr : float numpy array
-        If retclean==True, also returns the cleaned data array.
+        The cleaned data array.
 
     Notes
     -----
@@ -381,12 +375,7 @@ def lacosmicx(np.ndarray[np.float32_t, ndim=2, mode='c', cast=True] indat,
             raise ValueError("""cleantype must be one of the following values:
                             [median, meanmask, medmask, idw]""")
 
-    if retclean:
-        output = (crmask.astype(np.bool), cleanarr)
-    else:
-        del cleanarr
-        output = crmask.astype(np.bool)
-    return output
+    return (crmask.astype(np.bool), cleanarr)
 
 
 def updatemask(np.ndarray[np.float32_t, ndim=2, mode='c', cast=True] data,
