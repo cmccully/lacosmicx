@@ -1,9 +1,11 @@
 lacosmicx
 ==========
 Name : Lacosmicx
+
 Author : Curtis McCully
+
 Date : October 2014
-=========
+
 Optimized implementation of the LA Cosmic algorithm
 
 Lacosmicx is designed to detect cosmic rays in images (numpy arrays),
@@ -20,10 +22,10 @@ If you use this code, please consider adding this repository address in a
 footnote: https://github.com/cmccully/lacosmicx
 
 Please cite the original paper which can be found at:
-U{http://www.astro.yale.edu/dokkum/lacosmic/}
+http://www.astro.yale.edu/dokkum/lacosmic/
 
 van Dokkum 2001, PASP, 113, 789, 1420
-(article : U{http://adsabs.harvard.edu/abs/2001PASP..113.1420V})
+(article : http://adsabs.harvard.edu/abs/2001PASP..113.1420V)
 
 This code requires Cython, preferably version >= 0.21.
 
