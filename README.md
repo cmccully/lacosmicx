@@ -52,4 +52,3 @@ This implementation is much faster than the original IRAF version
 
 -The arrays always must be C-contiguous, thus all loops are y outer, x inner.
 Note that this follows the Pyfits convention.
-"""
